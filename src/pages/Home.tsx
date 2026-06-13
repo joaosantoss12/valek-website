@@ -22,7 +22,7 @@ export default function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000)
+    const timer = setTimeout(() => setLoading(false), 1000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -274,21 +274,21 @@ export default function Home() {
               <i className="fa-solid fa-bolt" /> New content every day
             </span>
             <div className="content-schedule-items">
-              <div className="content-schedule-item cs-youtube">
+              <a className="content-schedule-item cs-youtube" href="https://www.youtube.com/@ValeK37/shorts" target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-youtube" />
                 <span className="cs-platform">YouTube Shorts</span>
                 <span className="cs-time">18:00</span>
-              </div>
-              <div className="content-schedule-item cs-tiktok">
+              </a>
+              <a className="content-schedule-item cs-tiktok" href="https://www.tiktok.com/@valek.37" target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-tiktok" />
                 <span className="cs-platform">TikTok Shorts</span>
                 <span className="cs-time">18:30</span>
-              </div>
-              <div className="content-schedule-item cs-instagram">
+              </a>
+              <a className="content-schedule-item cs-instagram" href="https://www.instagram.com/valek.37" target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-instagram" />
                 <span className="cs-platform">Instagram</span>
                 <span className="cs-time">19:00</span>
-              </div>
+              </a>
             </div>
           </div>
         </section>

@@ -87,7 +87,7 @@ const equip: Row[] = [
   { label: 'Mousepad', value: 'Sharkoon 1337 RGB V2 900' },
   { label: 'Keyboard', value: 'ROG Claymore II Wireless RX Red' },
   { label: 'Headset', value: 'SteelSeries Arctis Pro Wireless' },
-  { label: 'Micro', value: 'Shure SM7B' },
+  { label: 'Micro', value: 'Shure SM7B + Cloudlifter CL-1 + TC-Helicon GO XLR' },
 ]
 const monitor: Row[] = [
   { label: 'Monitor', value: 'BenQ XL2586X+ 600Hz DyAc2 24.1"' },

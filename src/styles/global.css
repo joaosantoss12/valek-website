@@ -562,16 +562,15 @@ ul { list-style:none; }
   backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 16px 24px;
-  width: fit-content;
-  max-width: calc(100% - 48px);
+  padding: 16px 40px;
+  width: 100%;
+  max-width: 1200px;
   margin: 24px auto;
 }
 .stats-bar-inner {
-  max-width: 900px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -767,6 +766,14 @@ ul { list-style:none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
   padding: 8px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--t) var(--ease), border-color var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.content-schedule-item:hover {
+  background: var(--surface-2);
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
 }
 .content-schedule-item i { font-size: 1.1rem; }
 .content-schedule-item .cs-platform {
@@ -817,8 +824,25 @@ ul { list-style:none; }
   padding: 70px 24px 80px;
 }
 .contacts-header { text-align: center; margin-bottom: 40px; }
-.contacts-header h1 { font-size: 2.4rem; font-weight: 700; margin: 6px 0 12px; }
+.contacts-header h1 { font-size: clamp(2rem,5vw,3rem); font-weight: 700; margin: 6px 0 12px; }
 .contacts-header p { color: var(--text-muted); font-size: 1rem; }
+.contacts-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 9px 18px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  border: 1px solid var(--border-accent);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--t) var(--ease);
+}
+.contacts-email:hover { background: var(--accent-dim); border-color: var(--accent); }
+.contacts-email i { color: var(--accent-light); }
 .contacts-form { display: flex; flex-direction: column; gap: 18px; }
 .contacts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .contacts-form label {
@@ -1088,7 +1112,7 @@ ul { list-style:none; }
   text-align: center;
 }
 .about-hero h1 {
-  font-size: clamp(2.5rem,6vw,4.5rem);
+  font-size: clamp(2rem,5vw,3rem);
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -1114,7 +1138,7 @@ ul { list-style:none; }
   align-items: center;
   margin-bottom: 60px;
 }
-.about-split.reverse { grid-template-columns: 1.6fr 1fr; }
+.about-split.reverse { grid-template-columns: 1.8fr 0.8fr; }
 .about-split.reverse .about-img { order: 2; }
 .about-split.reverse .about-text { order: 1; }
 
@@ -1124,6 +1148,7 @@ ul { list-style:none; }
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-2);
   object-fit: cover;
+  object-position: top;
   display: block;
 }
 
@@ -1213,13 +1238,13 @@ ul { list-style:none; }
   flex-shrink: 0;
   width: 180px;
   margin-right: 36px;
-  align-self: stretch;
+  align-self: flex-start;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .store-coins-player img {
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: var(--radius) var(--radius) 0 0;
   object-fit: cover;
   object-position: top center;
@@ -1267,7 +1292,7 @@ ul { list-style:none; }
   margin: 0 auto;
   text-align: center;
 }
-.store-grid-section h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 32px; }
+.store-grid-section h2 { font-size: clamp(2rem,5vw,3rem); font-weight: 700; margin-bottom: 32px; }
 .store-grid { text-align: left; }
 
 .store-grid {

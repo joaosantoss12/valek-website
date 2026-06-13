@@ -41,6 +41,9 @@ export default function Contacts() {
           <span className="section-label">Contact</span>
           <h1>Get in <span className="gradient-text">touch</span></h1>
           <p>Business, sponsorships or just to say hi — drop me a message below.</p>
+          <a className="contacts-email" href="mailto:thevalek99@gmail.com">
+            <i className="fa-solid fa-envelope" /> thevalek99@gmail.com
+          </a>
         </div>
 
         <form className="contacts-form" onSubmit={submit}>

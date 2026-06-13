@@ -8,7 +8,7 @@
   padding: 70px 24px 80px;
 }
 .settings-header { text-align: center; margin-bottom: 36px; }
-.settings-header h1 { font-size: 2.4rem; font-weight: 700; margin: 6px 0 12px; }
+.settings-header h1 { font-size: clamp(2rem,5vw,3rem); font-weight: 700; margin: 6px 0 12px; }
 .settings-header p { color: var(--text-muted); font-size: 1rem; }
 
 .settings-tabs {
