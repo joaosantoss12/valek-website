@@ -43,7 +43,7 @@ export default function Giveaways() {
       <Navbar />
 
       <div className="giveaways-hero">
-        <h1>10000€ GIVEAWAY</h1>
+        <h1>10 000€ GIVEAWAY</h1>
         <p>Join using the sponsor links below. Each item has its own minimum deposit requirement. Good luck!</p>
       </div>
 

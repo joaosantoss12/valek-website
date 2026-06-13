@@ -22,7 +22,7 @@ export default function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2300)
+    const timer = setTimeout(() => setLoading(false), 3000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -114,7 +114,7 @@ export default function Home() {
       const w = window as unknown as { Twitch: { Embed: new (id: string, opts: object) => void } }
       if (twitchEmbedRef.current) {
         twitchEmbedRef.current.innerHTML = ''
-        new w.Twitch.Embed('twitch-embed', { autoplay: false, width: '100%', height: 540, channel: 'valek' })
+        new w.Twitch.Embed('twitch-embed', { autoplay: false, width: '100%', height: 540, channel: 'valek', theme: 'dark' })
       }
     }
     document.body.appendChild(s)

@@ -65,12 +65,17 @@ const radar: Row[] = [
   { label: 'cl_radar_rotate', value: '0' },
   { label: 'cl_radar_icon_scale_min', value: '0.6' },
 ]
+/* ---- CS — Audio (fill in your values) ---- */
+const audio: Row[] = [
+  // e.g. { label: 'volume', value: '1' },
+]
+
 const launchOptions = '-high -novid -noreflex +rate 1000000 -allow_third_party_software +fps_max 0'
 
 const binds = [
   'bind "c" "toggle gameinstructor_enable"',
   'bind "v" "noclip"',
-  'bind "" "toggleconsole"',
+  'bind "\\" "toggleconsole"',
   'bind "mwheeldown" "+jump"',
   'bind "mwheelup" "+jump"',
   'bind mouse5 "incrementvar cl_crosshairsize 1 4000 3997.500000"',
@@ -114,7 +119,7 @@ const pc: Row[] = [
 ]
 
 type TopTab = 'cs' | 'gear' | 'pc'
-type CsTab = 'mouse' | 'video' | 'viewmodel' | 'hud' | 'radar' | 'binds' | 'launch'
+type CsTab = 'mouse' | 'video' | 'viewmodel' | 'hud' | 'radar' | 'audio' | 'binds' | 'launch'
 
 function RowList({ rows }: { rows: Row[] }) {
   return (
@@ -125,6 +130,24 @@ function RowList({ rows }: { rows: Row[] }) {
           <span className="settings-row-value">{r.value}</span>
         </div>
       ))}
+    </div>
+  )
+}
+
+function CodeBlock({ text, multiline }: { text: string; multiline?: boolean }) {
+  const [copied, setCopied] = useState(false)
+  const copy = () => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+    }).catch(() => {})
+  }
+  return (
+    <div className="settings-code-wrap">
+      <code className={`settings-code${multiline ? ' settings-code-block' : ''}`}>{text}</code>
+      <button className="settings-copy" onClick={copy} title="Copy to clipboard">
+        <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`} /> {copied ? 'Copied' : 'Copy'}
+      </button>
     </div>
   )
 }
@@ -149,6 +172,7 @@ const csTabs: { id: CsTab; label: string }[] = [
   { id: 'viewmodel', label: 'Viewmodel' },
   { id: 'hud', label: 'HUD' },
   { id: 'radar', label: 'Radar' },
+  { id: 'audio', label: 'Audio' },
   { id: 'binds', label: 'Binds' },
   { id: 'launch', label: 'Launch Options' },
 ]
@@ -208,16 +232,27 @@ export default function Settings() {
               {cs === 'viewmodel' && <Card title="Viewmodel Settings" rows={viewmodel} />}
               {cs === 'hud' && <Card title="HUD Settings" rows={hud} />}
               {cs === 'radar' && <Card title="Radar Settings" rows={radar} />}
+              {cs === 'audio' && (
+                audio.length > 0
+                  ? <Card title="Audio Settings" rows={audio} />
+                  : (
+                    <div className="settings-card settings-coming-soon">
+                      <i className="fa-solid fa-headphones" />
+                      <h3>Coming soon</h3>
+                      <p>Audio settings will be added here soon.</p>
+                    </div>
+                  )
+              )}
               {cs === 'binds' && (
                 <div className="settings-card">
                   <h3 className="settings-card-title">Binds</h3>
-                  <code className="settings-code settings-code-block">{binds.join('\n')}</code>
+                  <CodeBlock text={binds.join('\n')} multiline />
                 </div>
               )}
               {cs === 'launch' && (
                 <div className="settings-card">
                   <h3 className="settings-card-title">Launch Options</h3>
-                  <code className="settings-code">{launchOptions}</code>
+                  <CodeBlock text={launchOptions} />
                 </div>
               )}
             </div>

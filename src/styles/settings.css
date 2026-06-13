@@ -5,7 +5,7 @@
   max-width: 860px;
   margin: 0 auto;
   width: 100%;
-  padding: 120px 24px 80px;
+  padding: 70px 24px 80px;
 }
 .settings-header { text-align: center; margin-bottom: 36px; }
 .settings-header h1 { font-size: 2.4rem; font-weight: 700; margin: 6px 0 12px; }
@@ -102,6 +102,35 @@
   word-break: break-word;
 }
 .settings-code-block { white-space: pre-wrap; }
+.settings-empty { color: var(--text-muted); font-size: 0.92rem; }
+.settings-coming-soon {
+  text-align: center;
+  padding: 48px 24px;
+}
+.settings-coming-soon i { font-size: 2.4rem; color: var(--accent-light); margin-bottom: 14px; }
+.settings-coming-soon h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+.settings-coming-soon p { color: var(--text-muted); font-size: 0.92rem; }
+.settings-code-wrap { position: relative; }
+.settings-code-wrap .settings-code { padding-right: 92px; }
+.settings-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 5px 11px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--t) var(--ease);
+}
+.settings-copy:hover { background: var(--accent-dim); border-color: var(--accent); }
 .settings-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -128,7 +157,7 @@
 .settings-row-value { color: var(--text); font-size: 0.95rem; font-weight: 600; }
 
 @media (max-width: 768px) {
-  .settings-section { padding: 100px 20px 60px; }
+  .settings-section { padding: 40px 20px 60px; }
   .settings-download { margin-left: 0; }
   .settings-row { grid-template-columns: 1fr; gap: 2px; }
 }
