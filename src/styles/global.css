@@ -560,15 +560,18 @@ ul { list-style:none; }
 .stats-bar {
   background: rgba(12,12,34,0.85);
   backdrop-filter: blur(20px);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 20px 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  width: fit-content;
+  max-width: calc(100% - 48px);
+  margin: 24px auto;
 }
 .stats-bar-inner {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -582,8 +585,7 @@ ul { list-style:none; }
   border: 1px solid var(--border);
   cursor: pointer;
   transition: all var(--t) var(--ease);
-  flex: 1;
-  min-width: 130px;
+  flex: 0 0 auto;
 }
 .stat-item:hover { background: var(--surface-2); border-color: var(--border-accent); transform: translateY(-2px); }
 .stat-icon { font-size: 1.15rem; flex-shrink: 0; }
@@ -1669,6 +1671,7 @@ ul { list-style:none; }
   .platforms-grid { grid-template-columns: 1fr; }
   .store-grid { grid-template-columns: 1fr 1fr; }
   .tiktok-responsive-grid { grid-template-columns: repeat(2,1fr); }
+  .stats-bar { width: auto; }
   .stats-bar-inner { flex-wrap: wrap; }
   .stat-item { flex: 1 1 40%; }
 }
