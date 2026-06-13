@@ -504,8 +504,8 @@ ul { list-style:none; }
   font-size: clamp(3.5rem, 10vw, 7rem);
   line-height: 0.9;
   letter-spacing: 8px;
-  color: #84c2f5;
-  -webkit-text-fill-color: #84c2f5;
+  color: #5ea8ef;
+  -webkit-text-fill-color: #5ea8ef;
   filter:
     drop-shadow(0 0 16px rgba(96,165,250,0.55))
     drop-shadow(0 0 38px rgba(96,165,250,0.3));
@@ -562,11 +562,13 @@ ul { list-style:none; }
   backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 16px 40px;
+  /* equal free space around the pills on all sides */
+  padding: 24px;
   /* match the platforms cards: 40px inset each side, capped at the 1120 content width */
   width: calc(100% - 80px);
   max-width: 1120px;
-  margin: 24px auto;
+  /* top gap matches the 40px left/right inset */
+  margin: 40px auto 24px;
 }
 .stats-bar-inner {
   width: 100%;
@@ -602,17 +604,19 @@ ul { list-style:none; }
 
 .stats-sticky {
   position: fixed;
-  top: var(--nav-h);
+  /* overlap the navbar by 1px so the two blurred bars share no visible seam */
+  top: calc(var(--nav-h) - 1px);
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 10px 24px;
+  padding: 11px 24px 10px;
+  /* same color + opacity + blur as the navbar so they mesh into one bar */
   background: rgba(6,6,26,0.80);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
-/* While the sticky socials are showing, drop the navbar's bottom border so
-   the header and the socials background read as one continuous bar. */
+/* drop the navbar's bottom border while the sticky socials show, so the
+   header and the socials background read as one continuous bar */
 .page:has(.stats-sticky) .navbar { border-bottom-color: transparent; }
 .stats-sticky .stats-bar-inner {
   justify-content: center;
@@ -638,7 +642,8 @@ ul { list-style:none; }
   justify-content: center;
 }
 .loader-video {
-  width: 300px;
+  width: 440px;
+  max-width: 80vw;
   animation: loader-spin 0.6s linear infinite;
 }
 @keyframes loader-spin {

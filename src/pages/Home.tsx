@@ -22,7 +22,11 @@ export default function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500)
+    // Full intro the first time the site is opened; quicker when navigating
+    // back to Home later in the same session.
+    const firstVisit = !sessionStorage.getItem('valek_visited')
+    sessionStorage.setItem('valek_visited', '1')
+    const timer = setTimeout(() => setLoading(false), firstVisit ? 1200 : 1000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -284,7 +288,7 @@ export default function Home() {
                 <span className="cs-platform">TikTok Shorts</span>
                 <span className="cs-time">18:30</span>
               </a>
-              <a className="content-schedule-item cs-instagram" href="https://www.instagram.com/valek.37" target="_blank" rel="noreferrer">
+              <a className="content-schedule-item cs-instagram" href="https://www.instagram.com/valek.37/reels/" target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-instagram" />
                 <span className="cs-platform">Instagram</span>
                 <span className="cs-time">19:00</span>
