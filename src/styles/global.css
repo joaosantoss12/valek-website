@@ -569,6 +569,7 @@ ul { list-style:none; }
   margin: 24px auto;
 }
 .stats-bar-inner {
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -586,7 +587,7 @@ ul { list-style:none; }
   border: 1px solid var(--border);
   cursor: pointer;
   transition: all var(--t) var(--ease);
-  flex: 0 0 140px;
+  flex: 1;
 }
 .stat-item:hover { background: var(--surface-2); border-color: var(--border-accent); transform: translateY(-2px); }
 .stat-icon { font-size: 1.15rem; flex-shrink: 0; }
