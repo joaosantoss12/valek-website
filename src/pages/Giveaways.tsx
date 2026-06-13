@@ -14,17 +14,16 @@ function GiveawayCard({ item }: { item: GiveawayItem }) {
         alt={item.item}
         onClick={() => window.open(item.link, '_blank')}
       />
-      <div className="giveaway-card-stat">
-        <div className="giveaway-card-stat-label">Item</div>
-        <div className="giveaway-card-stat-value">{item.item}</div>
-      </div>
-      <div className="giveaway-card-stat">
-        <div className="giveaway-card-stat-label">Value</div>
-        <div className="giveaway-card-stat-value">{item.value}</div>
-      </div>
-      <div className="giveaway-card-stat">
-        <div className="giveaway-card-stat-label">Min. Deposit</div>
-        <div className="giveaway-card-stat-value">{item.minDeposit}</div>
+      <div className="giveaway-card-name">{item.item}</div>
+      <div className="giveaway-card-stats">
+        <div className="giveaway-card-stat">
+          <div className="giveaway-card-stat-label">Value</div>
+          <div className="giveaway-card-stat-value">{item.value}</div>
+        </div>
+        <div className="giveaway-card-stat">
+          <div className="giveaway-card-stat-label">Min. Deposit</div>
+          <div className="giveaway-card-stat-value">{item.minDeposit}</div>
+        </div>
       </div>
       <button className="giveaway-btn" onClick={() => window.open(item.link, '_blank')}>
         PARTICIPAR

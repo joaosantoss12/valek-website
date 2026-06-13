@@ -454,10 +454,8 @@ ul { list-style:none; }
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(-90deg); }
 }
-@media only screen and (orientation: portrait) {
-  body > *:not(#rotateScreen) { visibility: hidden; }
-  #rotateScreen { display: flex; }
-}
+/* The site is fully responsive, so it renders in portrait too — the old
+   "rotate your device" overlay is left disabled. */
 
 /* ================================================================
    HOME — HERO
@@ -1577,8 +1575,8 @@ ul { list-style:none; }
 
 .giveaways-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
   padding: 30px 60px 80px;
   max-width: 1600px;
   margin: 0 auto;
@@ -1589,13 +1587,26 @@ ul { list-style:none; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 16px 20px;
-  display: grid;
-  grid-template-columns: 110px 1fr 1fr 1fr auto;
-  gap: 16px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 12px;
+  text-align: center;
   animation: rb 3s linear infinite;
   transition: background var(--t) var(--ease);
+}
+.giveaway-card-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.giveaway-card-stats {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  width: 100%;
 }
 .giveaway-card:hover { background: var(--surface-2); }
 .giveaway-card:nth-child(odd)  { animation-delay: 0s; }
@@ -1623,6 +1634,7 @@ ul { list-style:none; }
 .giveaway-card-stat-value { font-size: 0.82rem; font-weight: 600; color: var(--text); }
 
 .giveaway-btn {
+  width: 100%;
   padding: 10px 16px;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
@@ -1657,10 +1669,16 @@ ul { list-style:none; }
   .navbar-socials { display: none; }
   .platforms-grid { grid-template-columns: 1fr 1fr; }
   .store-grid { grid-template-columns: repeat(2,1fr); }
-  .sponsor-card { grid-template-columns: 70px 1fr 1fr; grid-template-rows: auto auto; }
-  .sponsor-card-actions { grid-column: 1/-1; flex-direction: row; }
-  .giveaway-card { grid-template-columns: 70px 1fr 1fr; }
-  .giveaway-btn { grid-column: 1/-1; }
+  .sponsors-columns { grid-template-columns: 1fr; padding: 40px 24px 60px; }
+  .sponsor-card { grid-template-columns: repeat(3,1fr); }
+  .sponsor-card-logo { grid-column: 1/-1; width: 100%; height: 64px; }
+  .sponsor-card-actions { grid-column: 1/-1; flex-direction: row; width: 100%; }
+  .sponsor-card-actions .sponsor-btn { flex: 1; }
+  .giveaways-grid { padding: 30px 24px 60px; }
+  /* stack the about-me splits: image above text on both */
+  .about-split, .about-split.reverse { grid-template-columns: 1fr; }
+  .about-split.reverse .about-img { order: -1; }
+  .about-split.reverse .about-text { order: 0; }
 }
 
 @media (max-width: 768px) {
@@ -1671,10 +1689,12 @@ ul { list-style:none; }
   .stat-item { min-width: 0; flex: 1 1 40%; }
   .platforms-section, .tiktok-section { padding: 40px 20px; }
   .platforms-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .platform-card-img-icon { padding: 16px; }
+  .platform-card-body { padding: 12px 14px 14px; }
   .content-schedule { flex-direction: column; align-items: flex-start; padding: 18px; }
   .content-schedule-items { width: 100%; }
   .schedule-section { padding: 0 20px 60px; }
-  .schedule-header { gap: 12px; margin-bottom: 24px; }
+  .schedule-header { gap: 12px; margin-bottom: 24px; align-items: flex-start; }
   .schedule-header .schedule-clock, .schedule-header .schedule-twitch { font-size: 1.6rem; }
   .schedule-title h2 { font-size: 1.5rem; }
   .schedule-day { gap: 12px; padding: 14px 16px; }
@@ -1688,7 +1708,8 @@ ul { list-style:none; }
   .about-hero { padding: 40px 20px; }
   .about-content { padding: 0 20px 60px; }
   .about-split { grid-template-columns: 1fr; }
-  .about-split.reverse .about-img { order: 0; }
+  /* image above text on both splits (match the first one) */
+  .about-split.reverse .about-img { order: -1; }
   .about-split.reverse .about-text { order: 0; }
   .about-videos { grid-template-columns: 1fr; }
   .videos-section { padding: 40px 20px; }
@@ -1698,11 +1719,10 @@ ul { list-style:none; }
   .store-coins-player { display: none; }
   .store-grid-section { padding: 32px 20px; }
   .store-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
-  .sponsors-header, .sponsors-grid { padding-left: 20px; padding-right: 20px; }
-  .sponsors-grid { grid-template-columns: 1fr; }
-  .sponsor-card { grid-template-columns: 60px 1fr 1fr; }
+  .sponsors-header { padding-left: 20px; padding-right: 20px; }
+  .sponsors-columns { grid-template-columns: 1fr; padding: 32px 20px 60px; }
   .giveaways-hero { padding: 40px 20px 20px; }
-  .giveaways-grid { padding: 20px; grid-template-columns: 1fr; }
+  .giveaways-grid { padding: 20px; }
   .giveaway-card { grid-template-columns: 60px 1fr 1fr; }
   .footer { padding: 20px; flex-direction: column; text-align: center; }
 }
