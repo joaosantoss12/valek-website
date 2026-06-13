@@ -504,8 +504,8 @@ ul { list-style:none; }
   font-size: clamp(3.5rem, 10vw, 7rem);
   line-height: 0.9;
   letter-spacing: 8px;
-  color: #b4dcff;
-  -webkit-text-fill-color: #b4dcff;
+  color: #84c2f5;
+  -webkit-text-fill-color: #84c2f5;
   filter:
     drop-shadow(0 0 16px rgba(96,165,250,0.55))
     drop-shadow(0 0 38px rgba(96,165,250,0.3));
@@ -563,28 +563,30 @@ ul { list-style:none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 16px 40px;
-  width: 100%;
-  max-width: 1200px;
+  /* match the platforms cards: 40px inset each side, capped at the 1120 content width */
+  width: calc(100% - 80px);
+  max-width: 1120px;
   margin: 24px auto;
 }
 .stats-bar-inner {
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
 }
 .stat-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   border-radius: var(--radius-full);
   background: var(--surface);
   border: 1px solid var(--border);
   cursor: pointer;
   transition: all var(--t) var(--ease);
-  flex: 0 0 auto;
+  flex: 0 0 140px;
 }
 .stat-item:hover { background: var(--surface-2); border-color: var(--border-accent); transform: translateY(-2px); }
 .stat-icon { font-size: 1.15rem; flex-shrink: 0; }
@@ -604,8 +606,13 @@ ul { list-style:none; }
   right: 0;
   z-index: 50;
   padding: 10px 24px;
-  background: transparent;
+  background: rgba(6,6,26,0.80);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
+/* While the sticky socials are showing, drop the navbar's bottom border so
+   the header and the socials background read as one continuous bar. */
+.page:has(.stats-sticky) .navbar { border-bottom-color: transparent; }
 .stats-sticky .stats-bar-inner {
   justify-content: center;
   max-width: 1000px;
@@ -1138,7 +1145,7 @@ ul { list-style:none; }
   align-items: center;
   margin-bottom: 60px;
 }
-.about-split.reverse { grid-template-columns: 1.8fr 0.8fr; }
+.about-split.reverse { grid-template-columns: 1.6fr 1fr; }
 .about-split.reverse .about-img { order: 2; }
 .about-split.reverse .about-text { order: 1; }
 
