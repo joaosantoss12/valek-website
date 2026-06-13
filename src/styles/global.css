@@ -605,9 +605,7 @@ ul { list-style:none; }
   right: 0;
   z-index: 50;
   padding: 10px 24px;
-  background: rgba(6,6,26,0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  background: transparent;
 }
 .stats-sticky .stats-bar-inner {
   justify-content: center;
