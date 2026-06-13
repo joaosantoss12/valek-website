@@ -1,0 +1,12 @@
+#toTop{
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index:99;
+}
+#toTop img{
+    width:50%;
+}

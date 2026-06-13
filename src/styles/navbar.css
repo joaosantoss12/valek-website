@@ -1,0 +1,144 @@
+@import url('https://fonts.cdnfonts.com/css/do-futuristic');
+
+.nav-bar{
+    display:flex;
+    align-items: center;
+    background-color: #252142;
+}
+.titulo{
+    font-size:17px;
+    font-family: 'DO Futuristic', sans-serif;
+    color:#dbdcdd;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left:14px;
+    cursor: pointer;
+}
+.hr{
+    border-left:1px solid #dbdcdd;
+    height:40px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#socials{
+    display:flex;
+    align-items: center;
+    margin-left:5%;
+}
+#socials img{
+    width:69px;
+    height:auto;
+    border-radius: 10%;
+    border:2px solid #252142;
+    cursor: pointer;
+}
+#socials .link-twitch{
+    margin-left:13px;
+    font-size:17px;
+    color:#9147FF;
+}
+#socials .link-kick{
+    margin-left:13px;
+    color:#53FC18;
+    font-size:13px;
+}
+#socials .link-instagram{
+    margin-left: 15px;
+    color:#F8488E;
+    font-size:17px;
+}
+#socials .link-tiktok{
+    margin-left: 12px;
+    color:#000000;
+    font-size:17px;
+}
+#socials .link-telegram{
+    margin-left: 15px;
+    color:#29A9EB;
+    font-size:19px;
+}
+#socials .link-youtube{
+    margin-left: 13px;
+    color:#d90000;
+    font-size:17px;
+}
+#socials .link-discord{
+    margin-left:13px;
+    color:#786BFB;
+    font-size:17px;
+}
+#socials .link:hover{
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    position: absolute;
+    right:10%;
+}
+ul li{
+    display:inline;
+    padding:5px;
+    font-family: 'DO Futuristic', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius:2%;
+}
+ul li a{
+    color:#f7fafc;
+    text-decoration: none;
+    font-size:10px;
+    letter-spacing: 2px;
+    cursor:pointer;
+}
+ul li a:hover{
+    color:rgb(56, 56, 251);
+    text-shadow: 2px 2px black;
+}
+
+.nav-bar .iconMenu {
+    display:none;
+}
+
+@media screen and (max-width:1080px){
+    .nav-bar .iconMenu{
+        display: block;
+        font-size: 25px;
+        position: absolute;
+        color: #f7fafc;
+        right:5%;
+        cursor: pointer;
+    }
+    ul li{
+        display: none;
+    }
+    .nav-bar.responsive .menu{
+        margin-top:255px;
+        right:0;
+        width:169px;
+        text-align: center;
+        z-index:2;
+        background-color: #252142;
+        border-bottom: 1px solid #f7fafc;
+    }
+    .nav-bar.responsive ul li{
+        display:block;
+    }
+
+    .dark{
+        filter: brightness(35%);
+    }
+}
+
+#socials-toggle {
+    cursor: pointer;
+    font-size: 20px;
+    color: #dbdcdd;
+    margin-left: 10px;
+    user-select: none;
+}
+
+#social-links {
+    display: flex;
+    align-items: center;
+}

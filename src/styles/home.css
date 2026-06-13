@@ -1,0 +1,303 @@
+@import url('https://fonts.cdnfonts.com/css/do-futuristic');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #04041B;
+    user-select:none;
+}
+
+/* PAGE LOADING ANIMATION */
+.loader{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: #04041B;
+    z-index:999;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MENU E BACKGROUND */
+#background-video{
+    position:fixed;
+    width:100%;
+    height:100%;
+    filter:brightness(40%);
+    z-index:-1;
+    object-fit: cover;
+}
+
+.first-container{
+    height:100px;
+    width:100%;
+}
+
+/* ESTATISTICAS DE REDES SOCIAIS */
+.info-socials,.info-socials2{
+    display:flex;
+    justify-content: center;
+}
+.twitch-followers{
+    background-color: #353152;
+    padding:10px;
+    margin-right:35px;
+    border-radius: 25px;
+    border:2px solid rgb(11, 11, 190);
+    cursor:pointer;
+}
+.twitch-followers i{
+    color:#9147FF;
+}
+.twitch-followers span{
+    color:white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.kick-followers{
+    background-color: #353152;
+    padding:10px;
+    margin-right:35px;
+    border-radius: 25px;
+    border:2px solid rgb(11, 11, 190);
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.kick-followers span:last-child{
+    color:white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.instagram-followers{
+    background-color: #353152;
+    padding:10px;
+    margin-right:35px;
+    border-radius: 25px;
+    border:2px solid rgb(11, 11, 190);
+    cursor:pointer;
+}
+.instagram-followers i{
+    color:#F8488E;
+}
+.instagram-followers span{
+    color:white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.discord-members{
+    background-color: #353152;
+    padding:10px;
+    margin-right:35px;
+    border-radius: 25px;
+    border:2px solid rgb(11, 11, 190);
+    cursor:pointer;
+}
+.discord-members i{
+    color:#786BFB;
+}
+.discord-members span{
+    color:white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.contador-visitantes{
+    background-color: #353152;
+    padding:10px;
+    border-radius: 25px;
+    border:2px solid rgb(11, 11, 190);
+}
+.contador-visitantes i{
+    color:rgb(62, 147, 16);
+}
+.contador-visitantes span{
+    color:white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.info-socials-sticky{
+    position: fixed;
+    top:2%;
+    width:100%;
+    z-index:99;
+}
+
+/* CARTOES DE INFORMAÇAO / LINKS */
+.cartoes-info{
+    display: flex;
+    margin-top: 3.5%;
+}
+.grid-item {
+    text-align: center;
+    margin-bottom: 6%;
+}
+.cartoes-info img:hover{
+    cursor:pointer;
+}
+.cartao-sobre-mim img{
+    width: 80%;
+}
+.cartao-redes-sociais{
+    position: absolute;
+    right:0;
+}
+.cartao-twitch img,.cartao-instagram img{
+    width:15%;
+}
+.cartao-discord img{
+    width:18%;
+}
+.cartao-sobre-mim .descricao{
+    margin-top:20px;
+    margin-right:25px;
+}
+.grid-item .descricao{
+    color:rgb(255, 255, 255);
+}
+.grid-item .descricao h3{
+    text-align: center;
+    font-family: 'DO Futuristic', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom:5px;
+    font-size:25px;
+}
+.grid-item .descricao p{
+    text-align: center;
+    margin-top:10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* HIGHTLIGHTS DO TIKTOK @ESL */
+.tiktok-ESL-highlights{
+    margin-top:8%;
+}
+.tiktok-ESL-highlights p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size:25px;
+    margin-bottom:20px;
+    color: white;
+    margin:2% 30px;
+    margin-top:5%;
+    margin-left:100px;
+}
+.tiktok-iframes{
+    display:flex;
+}
+.tiktok-ESL-highlights blockquote{
+    width:327px;
+    height:660px;
+    border-radius: 2%;
+    background-color: white;
+}
+.tiktok-responsive, .tiktok-ESL-highlights .tiktok-descricao{
+    display:none;
+}
+
+/* TWITCH.TV LIVESTREAM AO VIVO */
+.twitch-stream-live p{
+    margin:5% 30px;
+    margin-bottom:3%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size:25px;
+    color: white;
+    margin-left:100px;
+}
+.twitch-stream-live .twitch-stream-live-embed{
+    text-align: center;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:5%;
+    bottom:0;
+    width:100%;
+    text-align: center;
+}
+.footer span{
+    font-weight:bold;
+    padding: 10px 0;
+    font-size:15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+span.copyright{
+    float:right;
+    margin: 0 1%;
+}
+span.joao{
+    color:#14b44f;
+    cursor:pointer;
+}
+
+@keyframes rainbowTexto{
+    from { color: #6666ff; }
+    10% { color: #0099ff; }
+    50% { color: #00ff00; }
+    75% { color: #ff3399; }
+    100% { color: #6666ff; }
+}
+
+@media screen and (max-width: 1330px) {
+    .tiktok-iframes{
+        display:none;
+    }
+    .tiktok-ESL-highlights .tiktok-responsive{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .tiktok-ESL-highlights .tiktok-responsive img{
+        width:100%;
+    }
+    .tiktok-ESL-highlights .tiktok-responsive a{
+        cursor: pointer;
+        margin:0 5px;
+    }
+}
+
+@media screen and (max-width:1025px){
+    .cartoes-info{
+        display:block;
+        position: relative;
+        margin-top:25px;
+    }
+    .grid-item{
+        text-align: center;
+    }
+    .grid-item .descricao h3{
+        font-size:3.5vw;
+    }
+    .grid-item .descricao p{
+        font-size: 2.8vw;
+    }
+    .cartao-sobre-mim img{
+        width:30%;
+    }
+    .cartao-sobre-mim .descricao{
+        margin-top:3%;
+        margin-right:4%;
+    }
+    .cartao-redes-sociais{
+        position: inherit;
+        display: flex;
+        bottom:25px;
+        margin-top:70px;
+    }
+    .cartao-redes-sociais img{
+        width: 30%;
+    }
+    .twitch-stream-live{
+        margin-top:10%;
+    }
+}
+@media screen and (max-width:575px) {
+    .info-socials span{
+        font-size:2.5vw;
+    }
+}

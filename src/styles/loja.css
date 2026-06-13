@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/do-futuristic');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    background-color: #04041B;
+    user-select:none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.first-container{
+    height:100px;
+    width:100%;
+    overflow: hidden;
+}
+
+header{
+    display: flex;
+    position: relative;
+}
+header img#valek-store{
+    width:25%;
+    height: 87%;
+    right:0;
+    position: absolute;
+    margin:2% 12%;
+    object-fit: contain;
+    width: auto;
+    border-radius: 5%;
+}
+
+.disclaimer{
+    margin:2% 12%;
+    width:50%;
+}
+.disclaimer div{
+    display:flex;
+    color:White;
+    align-items: center;
+    margin-bottom:0.8%;
+}
+.disclaimer i{
+    margin-left:2%;
+    font-size:1.4vw;
+    width:6%;
+}
+.disclaimer .disclaimer-descricao{
+    margin-left:3%;
+}
+.disclaimer h4{
+    font-size:1.2vw;
+    letter-spacing: 1px;
+}
+.disclaimer p{
+    font-size:1vw;
+    letter-spacing: 1px;
+}
+.disclaimer .viewers i{ color:#9400D3; }
+.disclaimer .subscribers i{ color:#0000FF; }
+.disclaimer .cheering i{ color:#00FF00; }
+.disclaimer .subscribe i{ color:#FFFF00; }
+.disclaimer .followers i{ color:#FF0000; }
+.disclaimer .donation i{ color:#FF7F00; }
+.disclaimer .disclaimer-descricao{ display:block; }
+
+.loja{
+    display:flex;
+    flex-wrap: wrap;
+    margin:0.5% 4%;
+}
+.loja .produto{
+    text-align: center;
+    flex:23%;
+    margin: 3% 1%;
+}
+.loja .produto-imagem{
+    width:100%;
+    height:60%;
+}
+.loja .produto img{
+    width:100%;
+    height:100%;
+    object-fit: fit;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+}
+.loja .produto-texto{
+    background-color: #d1cbff;
+    padding: 15px 10px;
+    font-weight: bold;
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+}
+.loja .produto h4{
+    color:rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size:20px;
+    margin-top:1%;
+}
+.loja .produto p{
+    color:rgb(0, 0, 0);
+    text-shadow: 0 0 8px #0000FF;
+    font-size: 15px;
+    margin-top:5%;
+}
+.loja button{
+    font-size:16px;
+    margin-top:4%;
+    border:none;
+    background-color: #350646;
+    color:white;
+    padding:8px;
+    border-radius:25px;
+    cursor: pointer;
+}
+.loja button:hover{
+    background-color: rgb(34, 13, 141);
+}
+
+.footer{
+    margin-top:5%;
+    bottom:0;
+    width:100%;
+    text-align: center;
+}
+.footer span{
+    font-weight:bold;
+    padding: 10px 0;
+    font-size:15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+span.copyright{
+    float:right;
+    margin: 0 1%;
+}
+span.joao{
+    color:#14b44f;
+    cursor:pointer;
+}
+
+@media screen and (max-width: 1300px){
+    .loja .produto{ flex:47%; }
+    .loja .produto h4{ font-size:2.3vw; }
+    .loja .produto p{ font-size: 1.5vw; }
+    .loja button{ font-size:1.6vw; }
+}
+
+@media screen and (max-width: 700px){
+    .loja .produto{ flex:50%; padding: 2% 15%; margin-bottom:5%; }
+    .loja .produto h4{ font-size:4vw; }
+    .loja .produto p{ font-size: 2.8vw; }
+    .loja button{ font-size:3vw; }
+}
