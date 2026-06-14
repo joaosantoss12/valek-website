@@ -140,7 +140,7 @@ function CodeBlock({ text, multiline }: { text: string; multiline?: boolean }) {
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
-    }).catch(() => {})
+    }).catch(() => { })
   }
   return (
     <div className="settings-code-wrap">
@@ -152,10 +152,13 @@ function CodeBlock({ text, multiline }: { text: string; multiline?: boolean }) {
   )
 }
 
-function Card({ title, rows }: { title: string; rows: Row[] }) {
+function Card({ title, rows, action }: { title: string; rows: Row[]; action?: React.ReactNode }) {
   return (
     <div className="settings-card">
-      <h3 className="settings-card-title">{title}</h3>
+      <div className="settings-card-head">
+        <h3 className="settings-card-title">{title}</h3>
+        {action && <div className="settings-card-action">{action}</div>}
+      </div>
       <RowList rows={rows} />
     </div>
   )
@@ -180,6 +183,17 @@ const csTabs: { id: CsTab; label: string }[] = [
 export default function Settings() {
   const [top, setTop] = useState<TopTab>('cs')
   const [cs, setCs] = useState<CsTab>('mouse')
+  const [clipOpen, setClipOpen] = useState(false)
+  const [clipId, setClipId] = useState<string | null>(null)
+
+  const openClip = (id: string) => {
+    setClipId(id)
+    setClipOpen(true)
+  }
+  const closeClip = () => {
+    setClipOpen(false)
+    setClipId(null)
+  }
 
   return (
     <div className="page settings-page">
@@ -225,7 +239,11 @@ export default function Settings() {
               {cs === 'mouse' && <Card title="Mouse & Sensitivity" rows={mouseSens} />}
               {cs === 'video' && (
                 <>
-                  <Card title="Definições de vídeo" rows={videoBasic} />
+                  <Card
+                    title="Definições de vídeo"
+                    rows={videoBasic}
+                    action={<button className="watch-clip-btn" onClick={() => openClip('SlickThankfulHummingbirdBudBlast-HBY6S98Yr9b4eQWQ')}>Watch Clip</button>}
+                  />
                   <Card title="Vídeo (Avançado)" rows={videoAdvanced} />
                 </>
               )}
@@ -237,8 +255,15 @@ export default function Settings() {
                   ? <Card title="Audio Settings" rows={audio} />
                   : (
                     <div className="settings-card settings-coming-soon">
-                      <i className="fa-solid fa-headphones" />
-                      <h3>Coming soon</h3>
+                      <div className="settings-card-head">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                          <i className="fa-solid fa-headphones" />
+                          <h3>Coming soon</h3>
+                        </div>
+                        <div className="settings-card-action">
+                          <button className="watch-clip-btn" onClick={() => openClip('FriendlyDirtyMosquitoDancingBanana-ZXzO3G57qMuUwwtX')}>Watch Clip</button>
+                        </div>
+                      </div>
                       <p>Audio settings will be added here soon.</p>
                     </div>
                   )
@@ -275,6 +300,20 @@ export default function Settings() {
       </div>
 
       <Footer />
+      {clipOpen && clipId && (
+        <div className="modal-overlay" onClick={closeClip}>
+          <div className="modal-inner" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeClip} title="Close">×</button>
+            <iframe
+              title="twitch-clip"
+              src={`https://clips.twitch.tv/embed?clip=${clipId}&parent=localhost`}
+              frameBorder="0"
+              allowFullScreen
+              className="modal-iframe"
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

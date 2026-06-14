@@ -33,7 +33,10 @@ function GiveawayCard({ item }: { item: GiveawayItem }) {
 }
 
 export default function Giveaways() {
-  const allItems = giveawayItemsLeft.map((item, i) => ({ item, right: giveawayItemsRight[i] }))
+  // combine both columns into a single list and sort by numeric minDeposit desc
+  const combined = [...giveawayItemsLeft, ...giveawayItemsRight]
+  const parseDeposit = (d: string) => Number(d.replace(/[^0-9,\.\-]/g, '').replace(',', '.')) || 0
+  const sorted = combined.sort((a, b) => parseDeposit(b.minDeposit) - parseDeposit(a.minDeposit))
 
   return (
     <div className="page">
@@ -47,11 +50,8 @@ export default function Giveaways() {
       </div>
 
       <div className="giveaways-grid">
-        {allItems.map(({ item, right }, i) => (
-          <>
-            <GiveawayCard key={`l-${i}`} item={item} />
-            {right && <GiveawayCard key={`r-${i}`} item={right} />}
-          </>
+        {sorted.map((item, i) => (
+          <GiveawayCard key={`g-${i}`} item={item} />
         ))}
       </div>
 

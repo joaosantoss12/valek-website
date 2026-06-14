@@ -285,12 +285,12 @@ export default function Home() {
               </a>
               <a className="content-schedule-item cs-tiktok" href="https://www.tiktok.com/@valek.37" target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-tiktok" />
-                <span className="cs-platform">TikTok Shorts</span>
+                <span className="cs-platform">TikTok Videos</span>
                 <span className="cs-time">18:30</span>
               </a>
               <a className="content-schedule-item cs-instagram" href="https://www.instagram.com/valek.37/reels/" target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-instagram" />
-                <span className="cs-platform">Instagram</span>
+                <span className="cs-platform">Instagram Reels</span>
                 <span className="cs-time">19:00</span>
               </a>
             </div>
