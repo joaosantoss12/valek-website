@@ -223,7 +223,7 @@ export default function Settings() {
               <i className={t.icon} /> {t.label}
             </button>
           ))}
-          <a className="settings-download" href="/downloads/valek-config.cfg" download>
+          <a className="settings-download" href="/downloads/config.zip" download="vale-config.zip">
             <i className="fa-solid fa-download" /> Download config
           </a>
         </div>
