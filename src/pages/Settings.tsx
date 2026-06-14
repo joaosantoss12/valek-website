@@ -67,7 +67,19 @@ const radar: Row[] = [
 ]
 /* ---- CS — Audio (fill in your values) ---- */
 const audio: Row[] = [
-  // e.g. { label: 'volume', value: '1' },
+  { label: 'volume', value: '0.45' },
+  { label: 'snd_menumusic_volume', value: '0' },
+  { label: 'snd_headphone_eq', value: '1' },
+  { label: 'snd_spatialize_lerp', value: '0' },
+  { label: 'snd_mute_losefocus', value: '1' },
+  { label: 'snd_voipvolume', value: '0.36' },
+  { label: 'voice_modenable', value: '1' },
+  { label: 'snd_roundstart_volume', value: '0' },
+  { label: 'snd_roundend_volume', value: '0' },
+  { label: 'snd_mvp_volume', value: '0.06' },
+  { label: 'snd_mapobjective_volume', value: '0.04' },
+  { label: 'snd_tensecondwarning_volume', value: '0.04' },
+  { label: 'snd_deathcamera_volume', value: '0' },
 ]
 
 const launchOptions = '-high -novid -noreflex +rate 1000000 -allow_third_party_software +fps_max 0'
@@ -246,7 +258,7 @@ export default function Settings() {
               {cs === 'radar' && <Card title="Radar Settings" rows={radar} />}
               {cs === 'audio' && (
                 audio.length > 0
-                  ? <Card title="Audio Settings" rows={audio} />
+                  ? <Card title="Audio Settings" rows={audio} action={<button className="watch-clip-btn" onClick={() => openClip('FriendlyDirtyMosquitoDancingBanana-ZXzO3G57qMuUwwtX')}>Watch Clip</button>} />
                   : (
                     <div className="settings-card settings-coming-soon">
                       <div className="settings-card-head">
