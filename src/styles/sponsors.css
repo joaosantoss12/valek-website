@@ -202,7 +202,8 @@ span.joao{
     top: 0;
     max-width: 50%;
     height: 100%;
-    overflow: auto;
+    
+    overflow-y: hidden;
     background-color: rgba(0,0,0,0.7);
 }
 

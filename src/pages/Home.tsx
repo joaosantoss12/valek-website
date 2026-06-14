@@ -235,18 +235,6 @@ export default function Home() {
                 <div className="platform-card-desc">Counter Strike player, content creator and soccer player. 26 years old, Portuguese.</div>
               </div>
             </div>
-            <div className="platform-card pc-twitch" onClick={() => window.open('https://www.twitch.tv/valek', '_blank')}>
-              <div className="platform-card-img-icon">
-                <img src="/img/twitch.png" alt="Twitch" />
-              </div>
-              <div className="platform-card-body">
-                <div className="platform-card-platform">
-                  <i className="fa-brands fa-twitch" /> Twitch
-                </div>
-                <div className="platform-card-title">Livestreams</div>
-                <div className="platform-card-desc">Watch live and earn rewards as a viewer or subscriber.</div>
-              </div>
-            </div>
             <div className="platform-card pc-instagram" onClick={() => window.open('https://www.instagram.com/valek.37', '_blank')}>
               <div className="platform-card-img-icon">
                 <img src="/img/instagram.png" alt="Instagram" />
@@ -257,6 +245,18 @@ export default function Home() {
                 </div>
                 <div className="platform-card-title">@valek.37</div>
                 <div className="platform-card-desc">Daily life, clips, and behind the scenes content.</div>
+              </div>
+            </div>
+            <div className="platform-card pc-telegram" onClick={() => window.open('https://t.me/valektwitch', '_blank')}>
+              <div className="platform-card-img-icon">
+                <i className="fa-brands fa-telegram" style={{ fontSize: '80px', color: '#0088cc' }} />
+              </div>
+              <div className="platform-card-body">
+                <div className="platform-card-platform">
+                  <i className="fa-brands fa-telegram" style={{ color: '#0088cc' }} /> Telegram
+                </div>
+                <div className="platform-card-title">/valektwitch</div>
+                <div className="platform-card-desc">Daily updates, news, and exclusive announcements.</div>
               </div>
             </div>
             <div className="platform-card pc-discord" onClick={() => window.open('https://discord.com/invite/tTKbtsX9zx', '_blank')}>

@@ -73,17 +73,21 @@ export default function Sponsors() {
         </div>
       </div>
 
-      {/* Modal */}
-      <div className={`modal-overlay${modal.visible ? ' open' : ''}`}
-        onClick={e => { if (e.target === e.currentTarget) closeModal() }}>
-        <div className="modal-box">
-          <button className="modal-close" onClick={closeModal}>
-            <i className="fa-solid fa-xmark" />
-          </button>
-          <img className="modal-logo" src={modal.imgSrc} alt="Sponsor" />
-          <div className="modal-text" dangerouslySetInnerHTML={{ __html: modal.text }} />
+      {/* FIXED MODAL: Conditionally rendered to prevent blank popping on load */}
+      {modal.visible && (
+        <div
+          className="modal-overlay open"
+          onClick={e => { if (e.target === e.currentTarget) closeModal() }}
+        >
+          <div className="modal-box">
+            <button className="modal-close" onClick={closeModal}>
+              <i className="fa-solid fa-xmark" />
+            </button>
+            <img className="modal-logo" src={modal.imgSrc} alt="Sponsor" />
+            <div className="modal-text" dangerouslySetInnerHTML={{ __html: modal.text }} />
+          </div>
         </div>
-      </div>
+      )}
 
       <Footer />
     </div>

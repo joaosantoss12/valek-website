@@ -183,16 +183,10 @@ const csTabs: { id: CsTab; label: string }[] = [
 export default function Settings() {
   const [top, setTop] = useState<TopTab>('cs')
   const [cs, setCs] = useState<CsTab>('mouse')
-  const [clipOpen, setClipOpen] = useState(false)
-  const [clipId, setClipId] = useState<string | null>(null)
 
   const openClip = (id: string) => {
-    setClipId(id)
-    setClipOpen(true)
-  }
-  const closeClip = () => {
-    setClipOpen(false)
-    setClipId(null)
+    // Open Twitch clip in new window
+    window.open(`https://www.twitch.tv/valeklol/clip/${id}`, '_blank')
   }
 
   return (
@@ -300,20 +294,6 @@ export default function Settings() {
       </div>
 
       <Footer />
-      {clipOpen && clipId && (
-        <div className="modal-overlay" onClick={closeClip}>
-          <div className="modal-inner" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeClip} title="Close">×</button>
-            <iframe
-              title="twitch-clip"
-              src={`https://clips.twitch.tv/embed?clip=${clipId}&parent=localhost`}
-              frameBorder="0"
-              allowFullScreen
-              className="modal-iframe"
-            />
-          </div>
-        </div>
-      )}
     </div>
   )
 }
