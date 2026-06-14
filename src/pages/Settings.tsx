@@ -224,7 +224,7 @@ export default function Settings() {
             </button>
           ))}
           <a className="settings-download" href="/downloads/config.zip" download="vale-config.zip">
-            <i className="fa-solid fa-download" /> Download config
+            <i className="fa-solid fa-download" /> Download Config
           </a>
         </div>
 
