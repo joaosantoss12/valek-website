@@ -138,6 +138,17 @@ function ScheduleEditor() {
 /* ================================================================
    Sponsors editor
    ================================================================ */
+
+/* Index of the nearest sponsor in the same column, walking in `dir`.
+   The Sponsors page renders each column in array order, so swapping
+   with that neighbour is what moves a card up/down on the site. */
+function neighbourIdx(list: Sponsor[], i: number, dir: -1 | 1): number | null {
+  for (let j = i + dir; j >= 0 && j < list.length; j += dir) {
+    if (list[j].side === list[i].side) return j
+  }
+  return null
+}
+
 function SponsorsEditor() {
   const [sponsors, setSponsors] = useState<Sponsor[]>(defaultSponsors)
   const [status, setStatus] = useState('')
@@ -175,6 +186,29 @@ function SponsorsEditor() {
 
   const removeSponsor = (i: number) => setSponsors(sl => sl.filter((_, idx) => idx !== i))
 
+  /* Swap with the previous/next sponsor sharing the same column. */
+  const move = (i: number, dir: -1 | 1) =>
+    setSponsors(sl => {
+      const j = neighbourIdx(sl, i, dir)
+      if (j == null) return sl
+      const copy = [...sl]
+      ;[copy[i], copy[j]] = [copy[j], copy[i]]
+      return copy
+    })
+
+  /* Send to the other column, appended at the bottom of it. */
+  const moveToSide = (i: number, side: 'left' | 'right') =>
+    setSponsors(sl => {
+      if (sl[i].side === side) return sl
+      const moved = { ...sl[i], side }
+      const rest = sl.filter((_, idx) => idx !== i)
+      let last = -1
+      rest.forEach((s, idx) => { if (s.side === side) last = idx })
+      const copy = [...rest]
+      copy.splice(last + 1, 0, moved)
+      return copy
+    })
+
   const save = async () => {
     setSaving(true)
     setStatus('')
@@ -199,14 +233,27 @@ function SponsorsEditor() {
                   : <span>No image</span>}
               </div>
               <strong>{s.name || 'Untitled'}</strong>
-              <button className="admin-btn sm danger" onClick={() => removeSponsor(i)} title="Remove sponsor">✕ Remove</button>
+              <span className="admin-pos-badge">
+                {s.side === 'left' ? 'Left' : 'Right'} #{sponsors.filter((o, idx) => idx <= i && o.side === s.side).length}
+              </span>
+              <div className="admin-row-actions">
+                <button className="admin-btn sm" onClick={() => moveToSide(i, 'left')}
+                  disabled={s.side === 'left'} title="Move to left column">←</button>
+                <button className="admin-btn sm" onClick={() => move(i, -1)}
+                  disabled={neighbourIdx(sponsors, i, -1) == null} title="Move up in this column">↑</button>
+                <button className="admin-btn sm" onClick={() => move(i, 1)}
+                  disabled={neighbourIdx(sponsors, i, 1) == null} title="Move down in this column">↓</button>
+                <button className="admin-btn sm" onClick={() => moveToSide(i, 'right')}
+                  disabled={s.side === 'right'} title="Move to right column">→</button>
+                <button className="admin-btn sm danger" onClick={() => removeSponsor(i)} title="Remove sponsor">✕</button>
+              </div>
             </div>
             <div className="admin-fields">
               <label>Name
                 <input value={s.name} onChange={e => update(i, { name: e.target.value })} />
               </label>
               <label>Column
-                <select value={s.side} onChange={e => update(i, { side: e.target.value as 'left' | 'right' })}>
+                <select value={s.side} onChange={e => moveToSide(i, e.target.value as 'left' | 'right')}>
                   <option value="left">Left</option>
                   <option value="right">Right</option>
                 </select>
