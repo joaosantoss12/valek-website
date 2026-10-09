@@ -232,7 +232,7 @@ export default function Home() {
                   <i className="fa-solid fa-user" /> Streamer
                 </div>
                 <div className="platform-card-title">Ruben Vale</div>
-                <div className="platform-card-desc">Counter Strike player, content creator and soccer player. 26 years old, Portuguese.</div>
+                <div className="platform-card-desc">Counter Strike player, content creator and soccer player. 27 years old, Portuguese.</div>
               </div>
             </div>
             <div className="platform-card pc-instagram" onClick={() => window.open('https://www.instagram.com/valek.37', '_blank')}>
