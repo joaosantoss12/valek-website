@@ -15,7 +15,7 @@ export default function AboutMe() {
         <span className="section-label">About Me</span>
         <h1>Ruben <span className="gradient-text">Vale</span></h1>
         <p className="about-hero-intro">
-          My name is Ruben Vale, I am 26 years old and I am Portuguese. I am currently a content
+          My name is Ruben Vale, I am 27 years old and I am Portuguese. I am currently a content
           creator, a social media influencer and a soccer player.
         </p>
       </div>
